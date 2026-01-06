@@ -76,19 +76,28 @@ All client requests go through a central gateway (Express server). Redis acts as
 
 ```mermaid
 flowchart TD
-    A[Client / API Consumer] --> B[API Gateway<br/>(Node.js + Express)]
+    A["Client / API Consumer"] --> B["API Gateway
+(Node.js + Express)"]
     
-    B --> C[Redis Server]
+    B --> C["Redis Server"]
 
-    C --> D[API Keys Store<br/>(Strings)]
-    C --> E[Rate Limiting<br/>(Counters & Token Bucket)]
-    C --> F[Session Store<br/>(Hashes)]
-    C --> G[Leaderboard<br/>(Sorted Sets)]
-    C --> H[Job Queue<br/>(Lists + Hashes)]
-    C --> J[Distributed Locks<br/>(SET NX Expiry)]
+    C --> D["API Keys Store
+(Strings)"]
+    C --> E["Rate Limiting
+(Counters & Token Bucket)"]
+    C --> F["Session Store
+(Hashes)"]
+    C --> G["Leaderboard
+(Sorted Sets)"]
+    C --> H["Job Queue
+(Lists + Hashes)"]
+    C --> J["Distributed Locks
+(SET NX Expiry)"]
 
-    H --> I[Worker Service<br/>(Background Processor)]
+    H --> I["Worker Service
+(Background Processor)"]
 ```
+
 
 ## 🔑 API Key Authentication Flow
 
