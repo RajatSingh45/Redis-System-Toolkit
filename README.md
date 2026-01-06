@@ -384,34 +384,6 @@ Just like:
 
 ---
 
-## 🧪 Postman Testing (Screenshots + Notes)
-
-**Create Client**
-![Create Client](./Gateway/src/assests/New_Client.png)
-- This screenshot demonstrates the Client Registration API, where a new client registers using an ID and name. Once the request is processed, Redis stores the client metadata and a secure API key is generated and returned in the response. This API key is required to authenticate and access protected routes in the system. This onboarding flow is similar to how real-world APIs like Stripe, Razorpay, or GitHub issue API credentials to users.
-
-**Authorized Request**
-![Autherized Request](./Gateway//src//assests//Autherized_Key_Rotation.png)
-- This screenshot shows the API Key Rotation feature, where an authenticated client can request a new API key. The request is authorized using the existing API key, and the system issues a fresh key while invalidating the previous one. Key rotation is a widely-used security practice in production systems to prevent long-term key exposure and reduce security risks.
-
-**Rate Limit Trigger**
-![Rate Limit Triger](./Gateway//src/assests/Rate_Limit.png)
-- Here, the same API endpoint is called multiple times rapidly. Once the configured request quota is exceeded, the system responds with **429 Too Many Requests** along with a retryAfter value indicating when the next request is allowed. This demonstrates the Rate Limiting middleware powered by Redis, which protects APIs from spam, bot traffic, misuse, and accidental overload — similar to production systems like API gateways and cloud platforms.
-
-**Leaderboard Ranking**
-![LeaderBoard Rating](./Gateway//src/assests/Leaderboard.png)
-- This screenshot demonstrates the Leaderboard API, which uses Redis Sorted Sets to maintain a ranked scoreboard. Users are sorted automatically based on scores, and the API supports pagination for efficient retrieval. This design is commonly used in gaming platforms, learning portals, fitness apps, and social engagement dashboards where real-time ranking performance is critical.
-
-**Job Queue Enqueue**
-![Job Queue Enqueue](./Gateway//src/assests/20_Enqueu_Job_Single_Time.png)
-- In this screenshot, the Postman Runner is used to enqueue multiple jobs in bulk. Redis queues all incoming jobs efficiently, and the worker processes them asynchronously in the background. This confirms that the system can handle load without blocking API responses, providing scalability, message durability, and reliable background execution — key requirements in distributed systems.
-
-![Job Queue Enqueue](./Gateway//src/assests/Enqueue_Job_Trminal.png)
-- This screenshot shows the Worker Service consuming and processing background jobs from the Redis-based Job Queue. Each job represents an email task, and some jobs intentionally fail to simulate real system errors. Failed jobs are automatically retried, and jobs that exceed the retry limit are safely moved into a Dead Letter Queue (DLQ). This pattern mirrors systems like AWS SQS, BullMQ, Celery, and Kafka-based job processing.
-
-
----
-
 ## ⚠ Error Handling & Edge Cases
 -Invalid key
 
