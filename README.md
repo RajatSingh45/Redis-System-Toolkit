@@ -387,7 +387,7 @@ Just like:
 ## 🧪 Postman Testing (Screenshots + Notes)
 
 **Create Client**
-![Create Client](./Gateway//src/assests/New_Client.png)
+![Create Client](./Gateway/src/assests/New_Client.png)
 - This screenshot demonstrates the Client Registration API, where a new client registers using an ID and name. Once the request is processed, Redis stores the client metadata and a secure API key is generated and returned in the response. This API key is required to authenticate and access protected routes in the system. This onboarding flow is similar to how real-world APIs like Stripe, Razorpay, or GitHub issue API credentials to users.
 
 **Authorized Request**
