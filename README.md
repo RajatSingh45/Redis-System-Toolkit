@@ -69,6 +69,11 @@ It acts like a **mini API-Gateway + Job Processor**, inspired by platforms like 
 This project follows an **API Gateway Architecture**.  
 All client requests go through a central gateway (Express server). Redis acts as the core infrastructure layer powering authentication, rate-limiting, session storage, async queues, and leaderboard ranking. Background workers process jobs independently.
 
+## 🏗 System Architecture
+
+This project follows an **API Gateway Architecture**.  
+All client requests go through a central gateway (Express server). Redis acts as the core infrastructure layer powering authentication, rate-limiting, session storage, async queues, and leaderboard ranking. Background workers process jobs independently.
+
 ```mermaid
 flowchart TD
     A[Client / API Consumer] --> B[API Gateway<br/>(Node.js + Express)]
