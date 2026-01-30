@@ -214,20 +214,7 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[Incoming Request] --> B[Validate API Key]
-    B -->|Fail| C[401 Unauthorized]
 
-    B -->|Pass| D[Rate Limit Check]
-    D -->|Fail| E[429 Too Many Requests]
-
-    D -->|Pass| F[Business Logic Execution]
-    
-    F -->|Error| G[Log + 500 Response]
-    F -->|Success| H[200 OK]
-
-
-💬 **Redis acts as the shared source-of-truth for all services.**
-```
 ---
 
 ## 🛠 Tech Stack
